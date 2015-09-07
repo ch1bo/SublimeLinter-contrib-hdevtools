@@ -23,11 +23,10 @@ class Hdevtools(Linter):
     # version_re = r'(?P<version>\d+\.\d+\.\d+\.\d+)'
     # version_requirement = '>= 0.1.0.8'
     regex = (
-        r'^.+:(?P<line>\d+):'
+        r'.+:(?P<line>\d+):'
         r'(?P<col>\d+):\s*'
         r'(?:(?P<warning>Warning:)|(?P<error>(Error:)?))\s*'
-        # r'(?:(?P<warning>Warning)|(?P<error>(Error)?)):\s*'
-        r'(?P<message>[\s\S]+)$'
+        r'(?P<message>[^\n]+)'
     )
     multiline = True
     tempfile_suffix = '-'

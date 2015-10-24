@@ -3,14 +3,14 @@
 # Linter for SublimeLinter3, a code checking framework for Sublime Text 3
 #
 # Written by Sebastian Nagel
-# Copyright (c) 2015
+# Copyright (c) 2015 Sebastian Nagel
 #
 # License: MIT
 #
 
 """This module exports the Hdevtools plugin class."""
 
-from SublimeLinter.lint import Linter, util
+from SublimeLinter.lint import Linter
 
 
 class Hdevtools(Linter):
@@ -19,9 +19,8 @@ class Hdevtools(Linter):
 
     syntax = ('haskell', 'haskell-sublimehaskell', 'literate haskell')
     cmd = 'hdevtools check'
-    # version_args = '--numeric-version'
-    # version_re = r'(?P<version>\d+\.\d+\.\d+\.\d+)'
-    # version_requirement = '>= 0.1.0.8'
+    version_args = '--numeric-version'
+    version_requirement = '>= 0.1.2.1'
     regex = (
         r'.+:(?P<line>\d+):'
         r'(?P<col>\d+):\s*'
@@ -30,11 +29,3 @@ class Hdevtools(Linter):
     )
     multiline = True
     tempfile_suffix = '-'
-    # error_stream = util.STREAM_BOTH
-    # selectors = {}
-    # word_re = None
-    # defaults = {}
-    # inline_settings = None
-    # inline_overrides = None
-    # comment_re = None
-
